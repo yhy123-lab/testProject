@@ -1,5 +1,6 @@
 package com.nowcoder.community.util;
 
+import com.nowcoder.community.dto.MailDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +19,18 @@ public class MailClient {
     @Autowired
     private JavaMailSender mailSender;
 
-    @Value("$(spring.mail.username)")
+    @Value("${spring.mail.username}")
     private String from;
 
-    public void sendMail(String to, String subject,String content){
+    public void sendMail(MailDto mailDto){
         try{
             MimeMessage message = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message);
+            MimeMessageHelper helper = new MimeMessageHelper(message,true,"utf-8");
             helper.setFrom(from);
-            helper.setTo(to);
-            helper.setSubject(subject);
-            helper.setText(content,true);
-            mailSender.send(helper.getMimeMessage());
+            helper.setTo(mailDto.getTo());
+            helper.setSubject(mailDto.getSubject());
+            helper.setText(mailDto.getContent(),true);
+            mailSender.send(message);
         }catch(MessagingException e){
             logger.error("发送邮件失败：" + e.getMessage());
         }
