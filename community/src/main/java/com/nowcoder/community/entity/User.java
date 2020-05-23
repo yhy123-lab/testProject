@@ -15,7 +15,7 @@ public class User {
     private String email;
     private int type;
     private int status;
-    private String activeCode;
+    private String activationCode;
     private String headerUrl;
     private Date createTime;
 }
