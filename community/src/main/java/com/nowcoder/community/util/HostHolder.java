@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * 持有用户的信息，用于代替session对象
  */
 @Component
-public class HostHoler {
+public class HostHolder {
 
     private ThreadLocal<User> users = new ThreadLocal<>();
 

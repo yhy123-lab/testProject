@@ -4,7 +4,6 @@ import com.google.code.kaptcha.Producer;
 import com.nowcoder.community.entity.User;
 import com.nowcoder.community.service.UserService;
 import com.nowcoder.community.util.CommunityConstant;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +26,9 @@ import java.io.OutputStream;
 import java.util.Map;
 
 @Controller
-public class LoginInController implements CommunityConstant {
+public class LoginController implements CommunityConstant {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginInController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private UserService userService;
