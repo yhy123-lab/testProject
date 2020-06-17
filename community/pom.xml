@@ -89,6 +89,13 @@
             <version>1.2.58</version>
         </dependency>
 
+        <!--使用AspectJ方式注解需要相应的包-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
