@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.util.HtmlUtils;
 
+import java.security.PublicKey;
 import java.util.List;
 
 @Service
@@ -48,5 +49,9 @@ public class CommentService implements CommunityConstant {
             discussPostService.updateCommentCount(comment.getEntityId(),count);
         }
         return rows;
+    }
+
+    public Comment findCommentById(int id){
+        return commentMapper.selectCommentById(id);
     }
 }

@@ -127,4 +127,16 @@ public class MapperTests {
         count = messageMapper.selectLetterUnreadCount(131,"111_131");
         System.out.println(count);
     }
+
+    @Test
+    public void testSelectLatestNotice(){
+        Message message = messageMapper.selectLatestNotice(151,"comment");
+        System.out.println(message);
+    }
+
+    @Test
+    public void testSelectNoticeUnreadCount(){
+        int count = messageMapper.selectNoticeCount(149,"comment");
+        System.out.println(count);
+    }
 }
