@@ -6,7 +6,10 @@ import com.nowcoder.community.dao.UserMapper;
 import com.nowcoder.community.entity.DiscussPost;
 import com.nowcoder.community.entity.User;
 import com.nowcoder.community.util.CommunityUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -19,6 +22,8 @@ import java.util.Date;
 @Service
 public class AlphaService {
 
+    private static final Logger logger = LoggerFactory.getLogger(AlphaService.class);
+
     @Autowired
     private AlphaDao alphaDao;
 
@@ -29,17 +34,17 @@ public class AlphaService {
     private DiscussPostMapper discussPostMapper;
 
     public AlphaService(){
-        System.out.println("实例化AlphaService");
+        //System.out.println("实例化AlphaService");
     }
 
     @PostConstruct
     public void init(){
-        System.out.println("初始化AlphaService");
+        //System.out.println("初始化AlphaService");
     }
 
     @PreDestroy
     public void destroy(){
-        System.out.println("销毁AlphaService");
+        //System.out.println("销毁AlphaService");
     }
 
     public String find(){
@@ -71,5 +76,10 @@ public class AlphaService {
         Integer.valueOf("abc");
 
         return "ok";
+    }
+
+    @Async
+    public void executel(){
+        logger.debug("executel");
     }
 }
